@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import Link from "next/link";
+import { useMemo, useState } from "react";
 import ProductCard, { ProductCardProps } from "./ProductCard";
 
 // প্রোডাক্টের সম্পূর্ণ টাইপ
@@ -28,7 +29,8 @@ export default function CategoryProducts({ products }: CategoryProductsProps) {
   const [sortBy, setSortBy] = useState<string>("default");
 
   // প্রথম প্রোডাক্ট থেকে ক্যাটাগরির নাম ও আইকন বের করা
-  const categoryName = products[0]?.categoryNameBn || products[0]?.category || "পণ্যসমূহ";
+  const categoryName =
+    products[0]?.categoryNameBn || products[0]?.category || "পণ্যসমূহ";
   const categoryIcon = products[0]?.categoryIcon || products[0]?.image || "🍚";
   const totalItemsBn = toBengaliNumber(products.length);
 
@@ -52,7 +54,7 @@ export default function CategoryProducts({ products }: CategoryProductsProps) {
   }, [products, sortBy]);
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-6">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-6 w-full">
       {/* ১. টপ হেডার ব্যানার */}
       <div className="w-full bg-[#f8faf8] border border-emerald-900/5 rounded-2xl p-6 flex items-center gap-4 shadow-2xs">
         <div className="w-14 h-14 bg-[#edf3ed] rounded-2xl flex items-center justify-center text-3xl shrink-0">
@@ -97,7 +99,9 @@ export default function CategoryProducts({ products }: CategoryProductsProps) {
       {sortedProducts.length > 0 ? (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
           {sortedProducts.map((p) => (
-            <ProductCard key={p.id} product={p} />
+            <Link key={p.id} href={`/product/${p.id}`}>
+              <ProductCard product={p} />
+            </Link>
           ))}
         </div>
       ) : (

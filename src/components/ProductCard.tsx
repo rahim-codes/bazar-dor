@@ -1,3 +1,4 @@
+
 export interface ProductCardProps {
   nameBn: string;
   unit: string;
@@ -32,6 +33,7 @@ export default function ProductCard({
   const isDown = product.change.dir === "down";
 
   return (
+    
     <div className="w-full max-w-sm bg-[#f8faf8] border border-emerald-900/5 rounded-2xl p-4 shadow-2xs">
       {/* Top Row: Icon/Image + Name + Unit */}
       <div className="flex items-center gap-3">
@@ -47,7 +49,6 @@ export default function ProductCard({
           </span>
         </div>
       </div>
-
       {/* Bottom Row: Label + Price + Percentage Badge */}
       <div className="mt-5 flex items-end justify-between">
         <div>
@@ -80,5 +81,6 @@ export default function ProductCard({
         )}
       </div>
     </div>
+    
   );
 }

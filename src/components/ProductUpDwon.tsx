@@ -1,5 +1,6 @@
 import { toBengaliNumber } from "@/components/PriceTicker";
 import ProductCard from "@/components/ProductCard";
+import Link from "next/link";
 
 interface IProduct {
   id: number;
@@ -36,7 +37,9 @@ const ProductUpDwon = async () => {
         </h2>
         <div className="grid grid-cols-3 gap-5 mt-4">
           {sortedByUpPct.slice(0, 6).map((p) => (
-            <ProductCard key={p.id} product={p} />
+            <Link key={p.id} href={`/product/${p.id}`}>
+              <ProductCard product={p} />
+            </Link>
           ))}
         </div>
       </div>
@@ -47,7 +50,9 @@ const ProductUpDwon = async () => {
         </h2>
         <div className="grid grid-cols-3 gap-5 mt-4">
           {sortedByDwonPct.slice(0, 6).map((p) => (
-            <ProductCard key={p.id} product={p} />
+            <Link key={p.id} href={`/product/${p.id}`}>
+              <ProductCard product={p} />
+            </Link>
           ))}
         </div>
       </div>
@@ -59,7 +64,9 @@ const ProductUpDwon = async () => {
         </p>
         <div className="grid grid-cols-3 gap-5 mt-4">
           {data.map((p) => (
-            <ProductCard key={p.id} product={p} />
+            <Link key={p.id} href={`/product/${p.id}`}>
+              <ProductCard product={p} />
+            </Link>
           ))}
         </div>
       </div>
