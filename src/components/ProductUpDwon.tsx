@@ -1,0 +1,70 @@
+import { toBengaliNumber } from "@/components/PriceTicker";
+import ProductCard from "@/components/ProductCard";
+
+interface IProduct {
+  id: number;
+  nameBn: string;
+  image: string;
+  unit: string;
+  today: number;
+  change: {
+    dir: string;
+    pct: number;
+  };
+}
+
+const ProductUpDwon = async () => {
+  const res = await fetch("https://api.abcz.workers.dev/api/bazardor/products");
+  const data: IProduct[] = await res.json();
+  //   Up product
+  const filterUpProduct = data.filter((p) => p.change.dir === "up");
+  const sortedByUpPct = [...filterUpProduct].sort(
+    (a, b) => (b.change?.pct ?? 0) - (a.change?.pct ?? 0),
+  );
+
+  //   dwon product
+
+  const filterDwonProduct = data.filter((p) => p.change.dir === "down");
+  const sortedByDwonPct = [...filterDwonProduct].sort(
+    (a, b) => (b.change?.pct ?? 0) - (a.change?.pct ?? 0),
+  );
+  return (
+    <div className="max-w-7xl mx-auto mt-5">
+      <div>
+        <h2 className="font-bold text-2xl">
+          <span className="text-red-600">▲</span> আজ দাম বেড়েছে
+        </h2>
+        <div className="grid grid-cols-3 gap-5 mt-4">
+          {sortedByUpPct.slice(0, 6).map((p) => (
+            <ProductCard key={p.id} product={p} />
+          ))}
+        </div>
+      </div>
+      {/* Dwon Product */}
+      <div className="mt-10">
+        <h2 className="font-bold text-2xl">
+          <span className="text-green-500"> ▼</span> আজ দাম কমেছে
+        </h2>
+        <div className="grid grid-cols-3 gap-5 mt-4">
+          {sortedByDwonPct.slice(0, 6).map((p) => (
+            <ProductCard key={p.id} product={p} />
+          ))}
+        </div>
+      </div>
+      {/* All Product */}
+      <div className="mt-10">
+        <h2 className="font-bold text-2xl">সব পণ্য</h2>
+        <p className="mt-2">
+          মোট {toBengaliNumber(data.length)}টি পণ্য দেখানো হচ্ছে
+        </p>
+        <div className="grid grid-cols-3 gap-5 mt-4">
+          {data.map((p) => (
+            <ProductCard key={p.id} product={p} />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default ProductUpDwon;
