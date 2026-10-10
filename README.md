@@ -1,36 +1,28 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🛒 Bazar Dor (বাজার দর)
 
-## Getting Started
+> A modern, real-time price-tracking and comparison web application built specifically for the Bangladeshi market. It provides daily market price updates for essential commodities like rice, lentils, oil, vegetables, fish, meat, eggs, and spices across different regions and vendors.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🚀 Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+1. **Real-Time Price Ticker (`PriceTicker`)**: A smooth, animated marquee ticker displaying live commodity price changes (increases/decreases) at a glance.
+2. **Bengali Localization & Number Conversion**: Complete localized UI with Bengali typography (Hind Siliguri font) and a custom utility to convert standard digits into Bengali numerals (`toBengaliNumber`).
+3. **Category & Product Filtering**: Browse essential items categorized logically with sorting logic by price changes (items with price hikes vs. price drops).
+4. **Secure Authentication (`Better Auth`)**: Full user session management allowing users to sign up, log in, view profile details, update account info, and securely sign out.
+5. **Protected Routes & Middleware**: Route protection implemented via Next.js Middleware to secure private pages like user profiles and category/product management.
+6. **Robust API Fallback & Error Handling**: Graceful error handling with local mock fallbacks and 24-hour Next.js revalidation caching to mitigate external API rate limits (429 errors).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🛠️ Tech Stack
 
-## Learn More
+- **Framework:** [Next.js 16](https://nextjs.org/) (App Router, Turbopack)
+- **Styling:** [Tailwind CSS](https://tailwindcss.com/) & [daisyUI](https://daisyui.com/)
+- **Authentication:** [Better Auth](https://better-auth.com/)
+- **Language:** TypeScript
+- **Notifications:** React Toastify (`react-toastify`)
+- **Marquee Animation:** `react-fast-marquee`
+- **Backend/Data Source:** Cloudflare Worker REST API (`api.abcz.workers.dev`)
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---

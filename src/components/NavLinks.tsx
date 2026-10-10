@@ -40,6 +40,7 @@ const NavLinks = async () => {
   const data = await getCategories();
 
   if (data.length === 0) return null;
+
   return (
     <div className="flex flex-wrap gap-2.5 sm:gap-4 justify-center mt-5 px-4">
       {data.map((n) => (
