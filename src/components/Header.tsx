@@ -1,5 +1,6 @@
 import BanglaDate from "@/components/BanglaDate";
 import NavLinks from "@/components/NavLinks";
+import UserInfo from "@/components/UserInfo";
 import Image from "next/image";
 import Link from "next/link";
 import logo from "../../public/logo-icon.png";
@@ -38,20 +39,7 @@ export default function Header() {
         </Link>
 
         {/* Right Side: Auth Buttons */}
-        <div className="flex items-center gap-2 sm:gap-4">
-          <Link
-            href="/login"
-            className="btn btn-ghost btn-sm text-sm font-semibold text-base-content/80 hover:text-base-content hover:bg-base-200"
-          >
-            সাইন ইন
-          </Link>
-          <Link
-            href="/register"
-            className="btn btn-sm bg-emerald-700 hover:bg-emerald-800 text-white font-medium border-none rounded-xl px-5 shadow-md shadow-emerald-700/20"
-          >
-            সাইন আপ
-          </Link>
-        </div>
+        <UserInfo />
       </div>
       <NavLinks />
     </header>

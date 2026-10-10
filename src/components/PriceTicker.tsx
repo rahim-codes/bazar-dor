@@ -23,7 +23,6 @@ export const toBengaliNumber = (num: number | string): string => {
 const PriceTicker = async () => {
   const res = await fetch("https://api.abcz.workers.dev/api/bazardor/products");
   const data: Marquee[] = await res.json();
-  console.log(data);
 
   return (
     <div className="border p-1 mt-5 border-gray-300">

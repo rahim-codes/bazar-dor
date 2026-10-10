@@ -10,18 +10,28 @@ interface Inav {
 async function getCategories(): Promise<Inav[]> {
   try {
     const res = await fetch(
-      "https://api.api-store.workers.dev/api/bazardor/categories",
-      { next: { revalidate: 3600 } }, // cache for 1h so it doesn't hammer the API
+      "https://api.abcz.workers.dev/api/bazardor/categories",
+      { next: { revalidate: 3600 } }, // Cache for 1h
     );
 
-    if (!res.ok) return [];
+    // 1. Check HTTP status
+    if (!res.ok) {
+      console.error(`Categories API failed with status ${res.status}`);
+      return [];
+    }
 
+    // 2. Check content-type header
     const contentType = res.headers.get("content-type") ?? "";
-    if (!contentType.includes("application/json")) return [];
+    if (!contentType.includes("application/json")) {
+      console.error("Categories API did not return JSON");
+      return [];
+    }
 
+    // 3. Parse JSON safely
     const data = await res.json();
     return Array.isArray(data) ? data : (data.categories ?? []);
-  } catch {
+  } catch (error) {
+    console.error("Error fetching categories:", error);
     return [];
   }
 }
