@@ -47,7 +47,7 @@ export default async function ProductPage({
 
   try {
     const res = await fetch(
-      `https://api.api-store.workers.dev/api/bazardor/products/${productId}`,
+      `https://openapi.programming-hero.com/api/bazardor/products/${productId}`,
       { next: { revalidate: 60 } },
     );
     if (res.ok) {

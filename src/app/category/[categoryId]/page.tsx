@@ -1,4 +1,3 @@
-import React from "react";
 import CategoryProducts from "@/components/CategoryProducts";
 
 interface PageProps {
@@ -13,8 +12,8 @@ export default async function CategoryPage({ params }: PageProps) {
   let products = [];
   try {
     const res = await fetch(
-      `https://api.api-store.workers.dev/api/bazardor/products?category=${categoryId}`,
-      { next: { revalidate: 60 } }
+      `https://openapi.programming-hero.com/api/bazardor/products?category=${categoryId}`,
+      { next: { revalidate: 60 } },
     );
     if (res.ok) {
       const data = await res.json();

@@ -25,7 +25,7 @@ export default function ProfilePage() {
         fetchOptions: {
           onSuccess: () => {
             toast.success("সাইন আউট সফল হয়েছে!");
-            router.push("/login");
+            router.push("/signup");
           },
         },
       });

@@ -10,7 +10,7 @@ interface Inav {
 async function getCategories(): Promise<Inav[]> {
   try {
     const res = await fetch(
-      "https://api.abcz.workers.dev/api/bazardor/categories",
+      "https://openapi.programming-hero.com/api/bazardor/categories",
       { next: { revalidate: 3600 } }, // Cache for 1h
     );
 
