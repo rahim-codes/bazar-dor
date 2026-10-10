@@ -28,6 +28,32 @@ export default function SignUpPage() {
     }
   };
 
+  const signUpWithGoogle = async () => {
+    const data = await authClient.signIn.social({
+      provider: "google",
+    });
+    if (data) {
+      redirect("/");
+      toast.success("অ্যাকাউন্ট সফলভাবে তৈরি হয়েছে!");
+    }
+    if (!data) {
+      toast.error("সাইন আপ ব্যর্থ হয়েছে।");
+    }
+  };
+
+  const signUpWithGithub = async () => {
+    const data = await authClient.signIn.social({
+      provider: "github",
+    });
+    if (data) {
+      redirect("/");
+      toast.success("অ্যাকাউন্ট সফলভাবে তৈরি হয়েছে!");
+    }
+    if (!data) {
+      toast.error("সাইন আপ ব্যর্থ হয়েছে।");
+    }
+  };
+
   return (
     <div className="min-h-[85vh] flex flex-col items-center justify-center py-10 px-4 mt-5">
       {/* ১. হেডার টাইটেল ও সাবটাইটেল */}
@@ -123,6 +149,7 @@ export default function SignUpPage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           {/* Google Button */}
           <button
+            onClick={signUpWithGoogle}
             type="button"
             className="flex items-center justify-center gap-2 bg-base-100 border border-base-200 hover:bg-base-200/50 text-base-content font-bold text-xs py-2.5 px-3 rounded-xl transition-colors"
           >
@@ -149,6 +176,7 @@ export default function SignUpPage() {
 
           {/* GitHub Button */}
           <button
+            onClick={signUpWithGithub}
             type="button"
             className="flex items-center justify-center gap-2 bg-base-100 border border-base-200 hover:bg-base-200/50 text-base-content font-bold text-xs py-2.5 px-3 rounded-xl transition-colors"
           >

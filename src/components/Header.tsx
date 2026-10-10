@@ -1,5 +1,6 @@
 import BanglaDate from "@/components/BanglaDate";
 import NavLinks from "@/components/NavLinks";
+import PriceTicker from "@/components/PriceTicker";
 import UserInfo from "@/components/UserInfo";
 import Image from "next/image";
 import Link from "next/link";
@@ -42,6 +43,7 @@ export default function Header() {
         <UserInfo />
       </div>
       <NavLinks />
+      <PriceTicker />
     </header>
   );
 }
