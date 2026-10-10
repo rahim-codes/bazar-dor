@@ -7,14 +7,6 @@ import Link from "next/link";
 import logo from "../../public/logo-icon.png";
 
 export default function Header() {
-  // Dynamic Bangla Date
-  //   const formattedDate = new Intl.DateTimeFormat("bn-BD", {
-  //     weekday: "long",
-  //     day: "numeric",
-  //     month: "long",
-  //     year: "numeric",
-  //   }).format(new Date());
-
   return (
     <header className="w-full bg-base-100 border-b border-base-200">
       <div className="navbar max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center py-2">

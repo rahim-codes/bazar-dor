@@ -32,12 +32,13 @@ const ProductUpDwon = async () => {
     (a, b) => (b.change?.pct ?? 0) - (a.change?.pct ?? 0),
   );
   return (
-    <div className="max-w-7xl mx-auto mt-5">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-5">
+      {/* Up Product */}
       <div>
-        <h2 className="font-bold text-2xl">
+        <h2 className="font-bold text-xl sm:text-2xl text-base-content flex items-center gap-2">
           <span className="text-red-600">▲</span> আজ দাম বেড়েছে
         </h2>
-        <div className="grid grid-cols-3 gap-5 mt-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 mt-4">
           {sortedByUpPct.slice(0, 6).map((p) => (
             <Link key={p.id} href={`/product/${p.id}`}>
               <ProductCard product={p} />
@@ -45,12 +46,13 @@ const ProductUpDwon = async () => {
           ))}
         </div>
       </div>
-      {/* Dwon Product */}
+
+      {/* Down Product */}
       <div className="mt-10">
-        <h2 className="font-bold text-2xl">
-          <span className="text-green-500"> ▼</span> আজ দাম কমেছে
+        <h2 className="font-bold text-xl sm:text-2xl text-base-content flex items-center gap-2">
+          <span className="text-emerald-600">▼</span> আজ দাম কমেছে
         </h2>
-        <div className="grid grid-cols-3 gap-5 mt-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 mt-4">
           {sortedByDwonPct.slice(0, 6).map((p) => (
             <Link key={p.id} href={`/product/${p.id}`}>
               <ProductCard product={p} />
@@ -58,13 +60,16 @@ const ProductUpDwon = async () => {
           ))}
         </div>
       </div>
+
       {/* All Product */}
       <div className="mt-10">
-        <h2 className="font-bold text-2xl">সব পণ্য</h2>
-        <p className="mt-2">
+        <h2 className="font-bold text-xl sm:text-2xl text-base-content">
+          সব পণ্য
+        </h2>
+        <p className="mt-1 text-sm text-base-content/60 font-medium">
           মোট {toBengaliNumber(data.length)}টি পণ্য দেখানো হচ্ছে
         </p>
-        <div className="grid grid-cols-3 gap-5 mt-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 mt-4">
           {data.map((p) => (
             <Link key={p.id} href={`/product/${p.id}`}>
               <ProductCard product={p} />
