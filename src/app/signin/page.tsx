@@ -101,7 +101,7 @@ export default function SignInPage() {
             type="submit"
             className="w-full bg-emerald-700 hover:bg-emerald-800 text-white font-bold py-3 px-4 rounded-xl shadow-md shadow-emerald-700/20 transition-colors mt-2"
           >
-            অ্যাকাউন্ট তৈরি করুন
+            সাইন ইন করুন
           </button>
         </form>
 
