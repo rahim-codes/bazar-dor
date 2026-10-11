@@ -26,3 +26,5 @@
 - **Backend/Data Source:** Cloudflare Worker REST API (`api.abcz.workers.dev`)
 
 ---
+
+live-link : https://bazar-dor-ca4l.vercel.app/
