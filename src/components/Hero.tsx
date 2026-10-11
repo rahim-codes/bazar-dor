@@ -1,16 +1,9 @@
+import BanglaDate from "@/components/BanglaDate";
 import Image from "next/image";
 import Link from "next/link";
 import hero from "../../public/bazar-hero.png";
 
 export default function Hero() {
-  // Dynamic Bangla Date
-  const formattedDate = new Intl.DateTimeFormat("bn-BD", {
-    weekday: "long",
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-  }).format(new Date());
-
   return (
     <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
       <div className="w-full bg-[#f6f9f6] rounded-3xl p-6 sm:p-10 lg:p-12 flex flex-col md:flex-row items-center justify-between gap-8 border border-emerald-900/5 shadow-2xs">
@@ -18,7 +11,7 @@ export default function Hero() {
         <div className="flex-1 space-y-4 text-left">
           {/* Date Badge */}
           <div className="inline-block bg-emerald-100/70 text-emerald-800 text-xs sm:text-sm font-semibold px-3.5 py-1.5 rounded-full">
-            {formattedDate}
+            <BanglaDate />
           </div>
 
           {/* Main Heading */}
