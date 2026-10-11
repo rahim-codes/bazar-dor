@@ -4,6 +4,7 @@ import PriceTicker from "@/components/PriceTicker";
 import UserInfo from "@/components/UserInfo";
 import Image from "next/image";
 import Link from "next/link";
+import { Suspense } from "react";
 import logo from "../../public/logo-icon.png";
 
 export default function Header() {
@@ -35,7 +36,13 @@ export default function Header() {
         <UserInfo />
       </div>
       <NavLinks />
-      <PriceTicker />
+      <Suspense
+        fallback={
+          <div className="w-full h-10 bg-base-200 animate-pulse my-2" />
+        }
+      >
+        <PriceTicker />
+      </Suspense>
     </header>
   );
 }
