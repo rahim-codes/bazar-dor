@@ -35,7 +35,13 @@ export default function Header() {
         {/* Right Side: Auth Buttons */}
         <UserInfo />
       </div>
-      <NavLinks />
+      <Suspense
+        fallback={
+          <div className="h-12 w-full bg-base-200 animate-pulse rounded-2xl mt-5" />
+        }
+      >
+        <NavLinks />
+      </Suspense>
       <Suspense
         fallback={
           <div className="w-full h-10 bg-base-200 animate-pulse my-2" />
